@@ -1,0 +1,58 @@
+/// 50:30
+
+
+
+1. node version 
+2. Npm 
+3. framework- Express
+4. Databaase- MongoDB
+5. Package Driver - MongoDB
+6. folder Structure===>routes, services  , helper
+
+
+
+ORM - object relationship Maping
+
+1.npm install Express create node_modules in folder
+2. npm install MongoDB
+3. npm install nodemon --save-dev   // will create dev dependency
+4. replace 
+    "test": "echo \"Error: no test specified\" && exit 1"
+    with====> 
+"start":"nodemon index.js"
+  in package.json in script
+5.add 
+    "type":"module",
+    below licence in package.json so that you can use import insted of require.
+6.connect the backend by using MongoClient;
+7. use a function and put all mongo code inside that function and then call function while checking it using console.log 
+8.  after connecting to the database(mogodb connection) then and then only it should shart your application (order maters)
+9.   surround your app in try and catch   
+
+
+cmd 
+
+1.mkdir to create folder
+2.clear - clear the code from cmd
+3. cd ===>to get inside a folder
+4. show dbs  ==>to show default database
+5. mongo ==> to get inside the MongoDB
+6. use databasename ==>If you want to use a database with name <mydbdatabasename>, 
+   then "use databasename" statement will try to find a database of name databasename
+    if it dont find it will create one. 
+7.db ==> it will tell which database you are in.
+8.
+
+
+
+default MongoDB port = 27017
+
+
+
+
+
+interview question 
+1. what is callback function..?
+2.  .ORM - object relationship Maping ..?
+3. difference between monguse and MongoDB..?
+4. 
