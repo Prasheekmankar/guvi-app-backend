@@ -1,45 +1,36 @@
+
+
 import express from "express";
-import { ObjectId, ReturnDocument } from "mongodb";
-import mongo from "../mongo.js";
+
+import service from "../services/batch.service.js";
+
 const route = express.Router();
-
-route.get("/", async (req, res)=>{
-    //find
-    try{
-        const data = await mongo.db.collection("batch").find().toArray();
-        res.json({ status:"success", data});
-    } catch (err){
-       res.json({ status:"error" , error:"cannot fetch batch Data" });
-    }
-   
-});
-
-route.post("/", async (req,res)=>{
-    //InsertOne
-    try{
-        const { insertedId : _id} = await mongo.db
-        .collection("batch")
-        .insertOne(req.body);
-        res.json({ status:"success", data:{_id, ...req.body} });
-    } catch (err){
-       res.json({ status:"error" , error:"cannot insert batch Data" });
-    }
-});
-
-route.put("/:id", async (req,res)=>{
-    //UpdateOne
-    try{
-        const data = await mongo.db
-        .collection("batch")
-        .findOneAndUpdate({_id: ObjectId(req.params.id) }, { $set: {...req.body}} , {ReturnDocument:"after"} ) ;
-        res.json({ status:"success", data });
-    } catch (err){
-       res.json({ status:"error" , error:"cannot udate batch Data" });
-    }
-});
-
-route.delete("/:id", (req,res)=>{
-    //DeleteOne
-});
+route.get("/", service.getBatch() );
+route.post("/",  service.addBatch());
+route.put("/:id", service.updateBatch());
+route.delete("/:id", service.deleteBatch());
 
 export default route;
+
+
+
+
+
+// ///////  otherwise
+
+// import express from "express";
+// import service from "../services/batch.service.js";
+
+// const route = express.Router();
+// route.get("/", async (req, res) => service.getBatch() );
+// route.post("/", async (req, res) => service.addbatch(req.body));
+// route.put("/:id", async (req, res) => 
+// service.updateBatch(req.params.id, req.body)
+// );
+// route.delete("/:id", (req, res) => service.deleteBatch(req.params.id));
+
+// export default route;
+
+
+
+

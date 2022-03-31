@@ -1,4 +1,4 @@
-/// 50:30
+
 
 
 
@@ -28,6 +28,11 @@ ORM - object relationship Maping
 7. use a function and put all mongo code inside that function and then call function while checking it using console.log 
 8.  after connecting to the database(mogodb connection) then and then only it should shart your application (order maters)
 9.   surround your app in try and catch   
+10. CRUD ==> update , delete , create , read.
+11.create seperate folder forrout and services.
+12.
+11.when ever you use  find() querry always use ".toArray("  ==> find().toArray(); sothat the output get in array.
+
 
 
 cmd 
@@ -41,7 +46,13 @@ cmd
    then "use databasename" statement will try to find a database of name databasename
     if it dont find it will create one. 
 7.db ==> it will tell which database you are in.
-8.
+8. beforeinsrting the data verify it like special character and all.
+9. while updating convert id into ObjectId  ==> {_id: ObjectId(req.params.id) }
+ 10. findOneAndUpdate   ===>  by default this will return old record before showing the update 
+ so use ==> {ReturnDocument:"after"} it is by default {ReturnDocument:"before"}
+ 11.
+    
+
 
 
 
@@ -55,4 +66,26 @@ interview question
 1. what is callback function..?
 2.  .ORM - object relationship Maping ..?
 3. difference between monguse and MongoDB..?
-4. 
+4. what is the purpose of middlewear.
+5. 
+
+
+
+
+pending
+
+1.database data==> batches   ----01:13 min
+
+
+
+
+batch 
+    _id
+    name
+     
+student 
+     _id
+     firstname
+     lastname
+     email
+     batch    

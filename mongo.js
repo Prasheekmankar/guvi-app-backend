@@ -1,17 +1,20 @@
 import { MongoClient } from "mongodb";
-const mongoUrl = "mongodb://localhost:27017";
-const mongoDbName = "guvi";
 
 const mongo = {
-  db: null,
+ 
+  db: null, // DB connect string
+  batc:null,   // Batch collection
 
   async connect() {
-    const client = new MongoClient(mongoUrl);
+    const client = new MongoClient(process.env.MONGODB_URL);
     await client.connect();
-    console.log(`MongoDB Connected - ${mongoUrl}`);
+    console.log(`MongoDB Connected - ${process.env.MONGODB_URL}`);
 
-    this.db = client.db(mongoDbName);
-    console.log(`mongodb selected - ${mongoDbName}`);
+    this.db = client.db(process.env.MONGODB_NAME);
+    console.log(`mongodb selected - ${process.env.MONGODB_NAME}`);
+    this.batch = this.db.collection("batch");
+    this.student = this.db.collection("student");
+    console.log("Collection Initialize")
   },
 };
 
